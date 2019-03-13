@@ -1,27 +1,37 @@
 module.exports = function solveSudoku(matrix) {
-  var sudoku = [];
+  let sudoku = [];
   sudoku = matrix;
+
+  let row = []; 
+  let col = [];
+
   for (var i = 0; i < 9; i++) {
     for (var j = 0; j < 9; j++) {
-      var a = sudoku[i][j];
-      if (a != 0) {
+      var zero = sudoku[i][j];
+      if (zero != 0) {
         continue;
       } else {
-        outer: for (var k = 1; k <= 9; k++) {
-          sudoku[i][j] = k;
-          for (var m = 0; m < 9; m++) {
-            for (var c = m + 1; c < 9; c++) {
-              var z = sudoku[i][m];
-              var b = sudoku[i][c];
-              if (z == b) {
-                sudoku[i][j] = k - 1;
-                break outer;
-              }
-            }
-            return matrix;
+
+          for (var z = 0; z < 9; z++) {
+                row.push(sudoku[i][z]);
+                // console.log(row)
           }
-        }
+             for (var x = 0; x < 9; x++) {
+               col.push(sudoku[x][j]);
+               // console.log(col)
+             }
+                for (var c = 1; c <= 9; c++) {
+                  if (!row.includes(c) || !col.includes(c)) {
+                    sudoku[i][j] = c;
+                    // console.log(c)
+                  }
+                  // return sudoku
+                }
+                // return sudoku
       }
+      // return sudoku
     }
+    // return sudoku
   }
+// return sudoku
 }
