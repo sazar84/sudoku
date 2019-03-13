@@ -25,7 +25,7 @@ module.exports = function solveSudoku(matrix) {
                     sudoku[i][j] = c;
                     // console.log(c)
                   }
-                  // return sudoku
+                  return sudoku
                 }
                 // return sudoku
       }
