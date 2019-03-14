@@ -5,8 +5,8 @@ module.exports = function solveSudoku(matrix) {
   let row = []; 
   let col = [];
 
-count:  for (var i = 0; i < 9; i++) {
-    for (var j = 0; j < 9; j++) {
+  for (var i = 0; i < 9; i++) {
+   count: for (var j = 0; j < 9; j++) {
       var zero = sudoku[i][j];
       if (zero != 0) {
         continue;
@@ -21,14 +21,14 @@ count:  for (var i = 0; i < 9; i++) {
                // console.log(col)
              }
                 for (var c = 1; c <= 9; c++) {
-                  if (!row.includes(c) && !col.includes(c)) {
+                  if (!row.includes(c) || !col.includes(c)) {
                     sudoku[i][j] = c;
                     // console.log(c)
                     continue count;
                   }
-                  return sudoku
+                //  return sudoku
                 }
-                // return sudoku
+                 return sudoku
       }
       // return sudoku
     }
