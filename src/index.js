@@ -24,6 +24,8 @@ module.exports = function solveSudoku(matrix) {
                   if (!row.includes(c) && !col.includes(c)) {
                     sudoku[i][j] = c;
                     // console.log(c)
+                    row = [];
+                    col = [];
                     continue count;
                   }
                // return sudoku
