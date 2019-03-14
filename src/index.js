@@ -50,7 +50,53 @@ module.exports = function solveSudoku(matrix) {
           }
         }
         // console.log(box)
+        if (i < 3 && j >= 3 && j < 6) {
+          for (var m = 0; m < 3; m++) {
+            for (var k = 0; k < 3; k++) {
+              box = sudoku.slice([m][3 + k], 1)
+            }
+          }
+        }
 
+        if (6 > i && i >= 3 && j >= 3 && j < 6) {
+          for (var m = 0; m < 3; m++) {
+            for (var k = 0; k < 3; k++) {
+              box = sudoku.slice([3 + m][3 + k], 1)
+            }
+          }
+        }
+
+        if (i >= 6 && i < 9 && j >= 3 && j < 6) {
+          for (var m = 0; m < 3; m++) {
+            for (var k = 0; k < 3; k++) {
+              box = sudoku.slice([6 + m][3 + k], 1)
+            }
+          }
+        }
+
+        if (i < 3 && j >= 6 && j < 9) {
+          for (var m = 0; m < 3; m++) {
+            for (var k = 0; k < 3; k++) {
+              box = sudoku.slice([m][6 + k], 1)
+            }
+          }
+        }
+
+        if (6 > i && i >= 3 && j >= 6 && j < 9) {
+          for (var m = 0; m < 3; m++) {
+            for (var k = 0; k < 3; k++) {
+              box = sudoku.slice([3 + m][6 + k], 1)
+            }
+          }
+        }
+
+        if (i >= 6 && i < 9 && j >= 6 && j < 9) {
+          for (var m = 0; m < 3; m++) {
+            for (var k = 0; k < 3; k++) {
+              box = sudoku.slice([6 + m][6 + k], 1)
+            }
+          }
+        }
 
         for (var c = 1; c <= 9; c++) {
           if (!row.includes(c) && !col.includes(c) && !box.includes(c)) {
