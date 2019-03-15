@@ -24,85 +24,86 @@ module.exports = function solveSudoku(matrix) {
         }
         // console.log(col)
 
-        if (i < 3 && j < 3) {
+        if (i < 3 && j >= 0 && j < 3) {
           for (var m = 0; m < 3; m++) {
             for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([m][k], [m][k+1])
+              box.push(sudoku[m][k])
             }
           }
         }
         // console.log(box)
 
-        if (6 > i && i >= 3 && j < 3) {
+        if (i < 3 && j >= 3 && j < 6) {
           for (var m = 0; m < 3; m++) {
             for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([m][k+3],[m][k+4])
+              box.push(sudoku[m][k+3])
             }
           }
         }
         // console.log(box)
+
+        if (i < 3 && j >= 6 && j < 8) {
+          for (var m = 0; m < 3; m++) {
+            for (var k = 0; k < 3; k++) {
+              box.push(sudoku[m][k+6])
+            }
+          }
+        }
+        // console.log(box)
+        
+        if (i >= 3 && i < 6 && j < 3) {
+          for (var m = 0; m < 3; m++) {
+            for (var k = 0; k < 3; k++) {
+              box.push(sudoku[m+3][k])
+            }
+          }
+        }
+        // console.log(box)
+
+        if (i >= 3 && i < 6 && j >= 3 && j < 6) {
+          for (var m = 0; m < 3; m++) {
+            for (var k = 0; k < 3; k++) {
+              box.push(sudoku[m+3][k+3])     
+              }
+            }
+          }
+       // console.log(box)
+        
+        if (i >= 3 && i < 6 && j >= 6 && j < 8) {
+          for (var m = 0; m < 3; m++) {
+            for (var k = 0; k < 3; k++) {
+              box.push(sudoku[m+3][k+6])
+             } 
+            }
+          }
+       // console.log(box)
 
         if (i >= 6 && i < 9 && j < 3) {
           for (var m = 0; m < 3; m++) {
             for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([m][k+6],[m][k+7] )
+              box.push(sudoku[m+6][k])
+              } 
             }
           }
-        }
         // console.log(box)
-        if (i < 3 && j >= 3 && j < 6) {
-          for (var m = 0; m < 3; m++) {
-            for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([m+3][k],[m+3][k+1])
-            }
-          }
-        }
-
-        if (6 > i && i >= 3 && j >= 3 && j < 6) {
-          for (var m = 0; m < 3; m++) {
-            for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([3 + m][3 + k],[m+3][k+4])
-            } )
-            }
-            }
-          }
-        }
 
         if (i >= 6 && i < 9 && j >= 3 && j < 6) {
           for (var m = 0; m < 3; m++) {
             for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([3 + m][6 + k],[m+3][k+7])
-            } )
+              box.push(sudoku[m+6][k+3])
+              } 
             }
           }
-        }
+        // console.log(box)
 
-        if (i < 3 && j >= 6 && j < 9) {
+        if (i >= 6 && i < 9 && j >= 6 && j < 8) {
           for (var m = 0; m < 3; m++) {
             for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([m+6][k], [m+6][k+1])
-            } )
+              box.push(sudoku[m+6][k+6])
+              } 
             }
           }
-        }
-
-        if (6 > i && i >= 3 && j >= 6 && j < 9) {
-          for (var m = 0; m < 3; m++) {
-            for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([6 + m][3 + k], [m+6][k+4])
-            } )
-            }
-          }
-        }
-
-        if (i >= 6 && i < 9 && j >= 6 && j < 9) {
-          for (var m = 0; m < 3; m++) {
-            for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([6 + m][6 + k], [m+6][k+7])
-            } )
-            }
-          }
-        }
+        // console.log(box)
 
         for (var c = 1; c <= 9; c++) {
           if (!row.includes(c) && !col.includes(c) && !box.includes(c)) {
