@@ -27,7 +27,7 @@ module.exports = function solveSudoku(matrix) {
         if (i < 3 && j < 3) {
           for (var m = 0; m < 3; m++) {
             for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([m][k], [m+1][k+1])
+              box = sudoku.slice([m][k], [m][k+1])
             }
           }
         }
