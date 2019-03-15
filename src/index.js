@@ -27,7 +27,7 @@ module.exports = function solveSudoku(matrix) {
         if (i < 3 && j < 3) {
           for (var m = 0; m < 3; m++) {
             for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([m][k], [m+2][k+2])
+              box = sudoku.slice([m][k], [m+1][k+1])
             }
           }
         }
@@ -36,7 +36,7 @@ module.exports = function solveSudoku(matrix) {
         if (6 > i && i >= 3 && j < 3) {
           for (var m = 0; m < 3; m++) {
             for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([3 + m][k],[3 + m+2][k+2])
+              box = sudoku.slice([3 + m][k],[3 + m+1][k+1])
             }
           }
         }
@@ -45,7 +45,7 @@ module.exports = function solveSudoku(matrix) {
         if (i >= 6 && i < 9 && j < 3) {
           for (var m = 0; m < 3; m++) {
             for (var k = 0; k < 3; k++) {
-              box = sudoku.slice([6 + m][k],[6 + m+2][k+2] )
+              box = sudoku.slice([6 + m][k],[6 + m+1][k+1] )
             }
           }
         }
