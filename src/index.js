@@ -3,13 +3,12 @@ module.exports = function solveSudoku(matrix) {
   let sudoku = [];
   sudoku = matrix;
 
-  let row = [];
-  let col = [];
-  let box = [];
-
   for (let i = 0; i < 9; i++) {
     count: for (let j = 0; j < 9; j++) {
-      var iszero = sudoku[i][j];
+      let row = [];
+      let col = [];
+      let box = [];
+      let iszero = sudoku[i][j];
       if (iszero != 0) {
         continue;
       } else {
@@ -109,9 +108,6 @@ module.exports = function solveSudoku(matrix) {
           if (!row.includes(c) && !col.includes(c) && !box.includes(c)) {
             sudoku[i][j] = c;
             // console.log(c)
-            row = [];
-            col = [];
-            box = [];
             continue count;
           }
         }
